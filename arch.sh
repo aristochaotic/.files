@@ -45,5 +45,3 @@ yay -S --needed adobe-source-code-pro-fonts awesome-terminal-fonts cantarell-fon
 
 #Installs gaming resorces
 yay -S --needed wine lutris steam
-
-test
