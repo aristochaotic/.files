@@ -4,11 +4,11 @@ if [[ $(uname -a) == *arch*  ]]; then
   #Checks if yay -s installed
   if [[ $(which yay) == /usr/bin/yay ]]; then
     #runs yay update
-    yay -Syu
+    yay -Syu --noconfirm
     yay -Yc
   else
     #Runs pacman update
-    pacman -Syu
+    pacman -Syu --noconfirm
   fi
   #run flatpak update if its installed
   which flatpak && flatpak update
