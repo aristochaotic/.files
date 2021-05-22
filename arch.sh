@@ -15,7 +15,7 @@ pacman -S zsh && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/mast
 if [[ $(lscpu) == *AMD* ]]; then
   pacman -S amd-ucode
 elif [[ $(lscpu) == *intel* ]]; then
-  pacman -S intel-ucode
+  pacman -S intel-ucodepac
   pacman -S mesa
 fi
 
@@ -42,6 +42,10 @@ yay -Syu
 yay -S --needed spotify minecraft-launcher rar jdk batcat
 #installs fonts
 yay -S --needed adobe-source-code-pro-fonts awesome-terminal-fonts cantarell-fonts gsfonts nerd-fonts-complete noto-fonts-cjk otf-font-awesome ttf-font-awesome ttf-ms-fonts ttf-font-awesome ttf-liberation ttf-ms-fonts ttf-opensans
+
+#Installs discord and stuff for virtual camra
+discord
+yay -S discord obs-studio v4l2loopback-dkms
 
 #Installs gaming resorces
 yay -S --needed wine lutris steam
