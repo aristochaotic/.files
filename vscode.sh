@@ -8,7 +8,7 @@ chmod 700 ~/.files/update.sh
 #Installs archiving/compreshion Pacages
 sudo pacman -S --needed p7zip unrar tar rsync zstd 
 #Installs basic pacages
-sudo pacman -S --needed base-devel curl wget nano neovim flatpak
+sudo pacman -S --needed base-devel curl wget nano neovim
 #Installs zsh
 sudo pacman -S --needed zsh && chsh -s /bin/zsh && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -23,5 +23,6 @@ yay -Syu
 #installs genral pacages
 yay -S --needed jdk bat code-server
 
-ln ~/.files/vimrc ~/vimrc
-ln ~/.files/zshrc ~/zshrc
+#Links zsh and vim rc files
+ln ~/.files/vimrc ~/.vimrc
+ln ~/.files/zshrc ~/.zshrc

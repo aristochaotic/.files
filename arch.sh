@@ -39,7 +39,7 @@ makepkg -si
 yay -Syu
 
 #installs genral pacages
-yay -S --needed spotify minecraft-launcher rar jdk batcat
+yay -S --needed spotify minecraft-launcher jdk bat
 #installs fonts
 yay -S --needed adobe-source-code-pro-fonts awesome-terminal-fonts cantarell-fonts gsfonts nerd-fonts-complete noto-fonts-cjk otf-font-awesome ttf-font-awesome ttf-ms-fonts ttf-font-awesome ttf-liberation ttf-ms-fonts ttf-opensans
 
