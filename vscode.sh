@@ -21,5 +21,7 @@ makepkg -si
 yay -Syu
 
 #installs genral pacages
-yay -S --needed rar jdk cat code-server
+yay -S --needed jdk bat code-server
 
+ln ~/.files/vimrc ~/vimrc
+ln ~/.files/zshrc ~/zshrc
