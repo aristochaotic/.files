@@ -1,7 +1,7 @@
 #!/bin/bash
 #setup time zone
-timedatectl set-timezone America/New_York
-systemctl enable systemd-timesyncd
+sudo timedatectl set-timezone America/New_York
+sudo systemctl enable systemd-timesyncd
 
 ~/.files/update.sh
 #Installs archiving/compreshion Pacages
@@ -49,3 +49,7 @@ yay -S discord obs-studio v4l2loopback-dkms
 
 #Installs gaming resorces
 yay -S --needed wine lutris steam
+
+#Links zsh and vim rc files
+ln -f ~/.files/vimrc ~/.vimrc
+ln -f ~/.files/zshrc ~/.zshrc

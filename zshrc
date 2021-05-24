@@ -44,6 +44,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 #alias
+  alias vi='nvim'
   alias ll='ls -l'
   alias la='ls -al'
   alias more='less'
