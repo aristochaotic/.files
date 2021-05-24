@@ -5,30 +5,33 @@ sudo systemctl enable systemd-timesyncd
 
 ~/.files/update.sh
 #Installs archiving/compreshion Pacages
-pacman -S p7zip p7zip-plugins unrar tar rsync zstd 
+sudo pacman -S --needed p7zip unrar tar rsync zstd 
 #Installs basic pacages
-pacman -S --needed base-devel curl wget nano neovim firefox nemo nemo-extensions vlc flatpak
+sudo pacman -S --needed base-devel curl wget nano neovim firefox vlc
 #Installs zsh
-pacman -S zsh && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo pacman -S --needed zsh && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#Nemo and extentions
+sudo pacman -S --needed nemo nemo-fileroller nemo-image-converter nemo-preview nemo-seahorse nemo-share nemo-terminal nemo-python
+
 
 #Installs microcode Based on cpu
 if [[ $(lscpu) == *AMD* ]]; then
-  pacman -S amd-ucode
+ sudo pacman -S amd-ucode
 elif [[ $(lscpu) == *intel* ]]; then
-  pacman -S intel-ucodepac
-  pacman -S mesa
+ sudo pacman -S intel-ucodepac
+ sudo pacman -S mesa
 fi
 
 #Installs xorg and nvida driver if needed
 if [[ $Video == Y ]]; then
-  pacman -S xorg-server
+ sudo pacman -S xorg-server
   if [[ $(lspci) == *NVIDIA* ]]; then
-  pacman -S nvidia nvidia-utils
+ sudo pacman -S nvidia nvidia-utils
   fi
 fi
 
 #Installs and enables gui
-pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
+sudo pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
 systemctl enable lightdm
 
 #Installs yay
