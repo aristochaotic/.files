@@ -10,12 +10,8 @@ if [[ $(uname -a) == *arch*  ]]; then
     #Runs pacman update
     pacman -Syu --noconfirm
   fi
-  #run flatpak update if its installed
-  which flatpak && flatpak update
   #Checks if the system is ubuntu 
 elif [[ $(uname -a) == *Ubuntu*  ]]; then
   #Runs apt update upgrad and auto remove
   sudo apt update && sudo apt upgrade -y && sudo apt autoremove
-  #run flatpak update if its installed
-  which flatpak && flatpak update
 fi
