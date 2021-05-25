@@ -54,5 +54,5 @@ yay -S discord obs-studio v4l2loopback-dkms
 yay -S --needed wine lutris steam
 
 #Links zsh and vim rc files
-ln -f ~/.files/vimrc ~/.vimrc
-ln -f ~/.files/zshrc ~/.zshrc
+ln -fs ~/.files/vimrc ~/.vimrc
+ln -fs ~/.files/zshrc ~/.zshrc

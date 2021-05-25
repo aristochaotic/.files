@@ -49,8 +49,6 @@ source $ZSH/oh-my-zsh.sh
   alias la='ls -al'
   alias more='less'
 
-  alias test='echo "hello world"'
-
   alias gitp='~/.files/git-push.sh'
   alias Update='~/.files/update.sh'
   

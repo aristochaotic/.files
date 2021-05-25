@@ -24,5 +24,5 @@ yay -Syu
 yay -S --needed jdk bat code-server
 
 #Links zsh and vim rc files
-ln -f ~/.files/vimrc ~/.vimrc
-ln -f ~/.files/zshrc ~/.zshrc
+ln -fs ~/.files/vimrc ~/.vimrc
+ln -fs ~/.files/zshrc ~/.zshrc
