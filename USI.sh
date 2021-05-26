@@ -16,7 +16,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG50sgvTSDclHBXiGljCwo9NWfM411U6f12Xog0nt6Bw
 #Vcode
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID0J5BnE39FsLimpAAvbrZI4xfGM5Si0UOpTsDwOfITh Vcode
 #Phone
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHJDhddiEwi77eNYLYPJhfP/VZaUqezTNvxIwh0dV2SS JuiceSSH" >> ~/.ssh/authorized_keys
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHJDhddiEwi77eNYLYPJhfP/VZaUqezTNvxIwh0dV2SS JuiceSSH" > ~/.ssh/authorized_keys
 
 
 #Links zsh and vim rc files
