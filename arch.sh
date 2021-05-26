@@ -25,9 +25,9 @@ fi
 #Installs xorg and nvida driver if needed
 if [[ $Video == Y ]]; then
  sudo pacman -S xorg-server
-  if [[ $(lspci) == *NVIDIA* ]]; then
+	if [[ $(lspci) == *NVIDIA* ]]; then
  sudo pacman -S nvidia nvidia-utils
-  fi
+	fi
 fi
 
 #Installs and enables gui
