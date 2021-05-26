@@ -56,3 +56,13 @@ yay -S --needed wine lutris steam
 #Links zsh and vim rc files
 ln -fs ~/.files/vimrc ~/.vimrc
 ln -fs ~/.files/zshrc ~/.zshrc
+
+#Sets up an ansible user
+if [[ $1 == ansible ]]; then
+	sudo groupadd -g 200 ansible
+	sudo useradd -m -u 200 -g ansible -G users -G wheel ansible
+	echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOZry9qcc9nnGZSA/CO1rHJjUl76oW+VSWMdn2TfkxfS Ansible" > /tmp/authorized_keys
+	sudo mkdir /home/ansible/.ssh/
+	sudo mv /tmp/authorized_keys /home/ansible/.ssh/authorized_keys
+	sudo chown ansible:ansible -R /home/ansible/
+fi

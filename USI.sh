@@ -34,3 +34,13 @@ if [[ $1 == alice ]]; then
 	sudo mv /tmp/authorized_keys /home/alice/.ssh/authorized_keys
 	sudo chown alice:alice -R /home/alice/
 fi
+
+#Sets up an ansible user
+if [[ $1 == ansible ]]; then
+	sudo groupadd -g 200 ansible
+	sudo useradd -m -u 200 -g ansible -G users -G sudo ansible
+	echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOZry9qcc9nnGZSA/CO1rHJjUl76oW+VSWMdn2TfkxfS Ansible" > /tmp/authorized_keys
+	sudo mkdir /home/ansible/.ssh/
+	sudo mv /tmp/authorized_keys /home/ansible/.ssh/authorized_keys
+	sudo chown ansible:ansible -R /home/ansible/
+fi
