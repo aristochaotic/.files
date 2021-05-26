@@ -22,6 +22,8 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHJDhddiEwi77eNYLYPJhfP/VZaUqezTNvxIwh0dV2SS
 #Links zsh and vim rc files
 ln -fs ~/.files/vimrc ~/.vimrc
 ln -fs ~/.files/zshrc ~/.zshrc
+#Removes unneeded files
+rm ~/.bash* ~/.zshrc.pre-oh-my-zsh
 
 if [[ $1 == alice ]]; then
   sudo groupadd alice
