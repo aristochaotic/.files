@@ -28,6 +28,7 @@ if [[ $1 == alice ]]; then
   sudo useradd -m -g alice -G users -G sudo alice
   sudo chsh -s /bin/zsh alice
   echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILWG3cIBju6vzX6s8JlmGNJOiWY7pQ19bHvcqDADtWzv snowi@DESKTOP-EVIR8IH" > /tmp/authorized_keys
-  sudo mkdir /home/alice/.ssh/ && sudo mv /tmp/authorized_keys
+  sudo mkdir /home/alice/.ssh/
+  sudo mv /tmp/authorized_keys
   sudo chown alice:alice -R /home/alice/
 fi
