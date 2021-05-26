@@ -51,8 +51,3 @@ source $ZSH/oh-my-zsh.sh
 
   alias gitp='~/.files/git-push.sh'
   alias Update='~/.files/update.sh'
-  
-#SSH alias
-  alias Jeeves='ssh -p 629 r2r0m0c0@192.168.99.14'
-
-  alias MCNode1='ssh r2r0m0c0@10.10.235.5'
