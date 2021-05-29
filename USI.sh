@@ -4,8 +4,6 @@ sudo timedatectl set-timezone America/New_York
 sudo systemctl enable systemd-timesyncd
 
 ~/.files/update.sh
-#Installs archiving/compreshion Pacages
-sudo apt install p7zip unrar tar rsync zstd 
 #Installs basic pacages
 sudo apt install curl wget nano neovim
 
