@@ -9,13 +9,15 @@ sudo apt install curl wget nano neovim
 
 echo "#Bob
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG50sgvTSDclHBXiGljCwo9NWfM411U6f12Xog0nt6Bw BOB
+#Laptop
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIECmmIxbghuZNKUCHwqkml5zKIxC8f4SZP+Vm1JIYAOL Laptop
 #Vcode
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID0J5BnE39FsLimpAAvbrZI4xfGM5Si0UOpTsDwOfITh Vcode
 #Phone
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHJDhddiEwi77eNYLYPJhfP/VZaUqezTNvxIwh0dV2SS JuiceSSH" > ~/.ssh/authorized_keys
 
 
-if [[ $1 == alice ]]; then
+if [[ $2 == alice ]]; then
 	sudo groupadd alice
 	sudo useradd -m -g alice -G users -G sudo alice
 	sudo chsh -s /bin/zsh alice
