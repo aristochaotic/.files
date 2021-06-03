@@ -18,7 +18,7 @@ sudo pacman -S --needed nemo nemo-fileroller nemo-image-converter nemo-preview n
 if [[ $(lscpu) == *AMD* ]]; then
  sudo pacman -S amd-ucode
 elif [[ $(lscpu) == *intel* ]]; then
- sudo pacman -S intel-ucodepac
+ sudo pacman -S intel-ucode
  sudo pacman -S mesa
 fi
 
