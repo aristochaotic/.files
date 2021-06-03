@@ -14,7 +14,8 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIECmmIxbghuZNKUCHwqkml5zKIxC8f4SZP+Vm1JIYAOL
 #Vcode
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID0J5BnE39FsLimpAAvbrZI4xfGM5Si0UOpTsDwOfITh Vcode
 #Phone
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHJDhddiEwi77eNYLYPJhfP/VZaUqezTNvxIwh0dV2SS JuiceSSH" > ~/.ssh/authorized_keys
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHJDhddiEwi77eNYLYPJhfP/VZaUqezTNvxIwh0dV2SS JuiceSSH
+" > ~/.ssh/authorized_keys
 
 
 if [[ $2 == alice ]]; then
