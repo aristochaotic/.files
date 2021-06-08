@@ -38,12 +38,17 @@ if [[ $1 == ansible ]]; then
 	sudo chown ansible:ansible -R /home/ansible/
 fi
 
+#Installs zsh
+sudo apt install zsh && chsh -s /bin/zsh && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 #Links zsh and vim rc files
 ln -fs ~/.files/vimrc ~/.vimrc
 ln -fs ~/.files/zshrc ~/.zshrc
 
-#Installs zsh
-sudo apt install zsh && chsh -s /bin/zsh && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 #Removes unneeded files
 rm ~/.bash* ~/.zshrc.pre-oh-my-zsh
+
+sudo snap install canonical-livepatch
+sudo canonical-livepatch enable "$2"
+
+

@@ -8,6 +8,8 @@ sudo systemctl enable systemd-timesyncd
 sudo pacman -S --needed p7zip unrar tar rsync zstd 
 #Installs basic pacages
 sudo pacman -S --needed base-devel curl wget nano neovim firefox vlc
+#Installs audio pacages
+sudo pacman -S --needed pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pavucontrol
 #Nemo and extentions
 sudo pacman -S --needed nemo nemo-fileroller nemo-image-converter nemo-preview nemo-seahorse nemo-share nemo-terminal nemo-python
 
