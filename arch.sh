@@ -17,17 +17,16 @@ networkmanager-openvpn network-manager-applet
 
 #Installs microcode Based on cpu
 if [[ $(lscpu) == *AMD* ]]; then
- sudo pacman -S amd-ucode
+ sudo pacman -S --needed amd-ucode
 elif [[ $(lscpu) == *intel* ]]; then
- sudo pacman -S intel-ucode
- sudo pacman -S mesa
+ sudo pacman -S --needed intel-ucode mesa
 fi
 
 #Installs xorg and nvida driver if needed
 if [[ $Video == Y ]]; then
- sudo pacman -S xorg-server
+ sudo pacman -S --needed xorg-server
 	if [[ $(lspci) == *NVIDIA* ]]; then
- sudo pacman -S nvidia nvidia-utils
+ sudo pacman -S --needed nvidia nvidia-utils
 	fi
 fi
 
