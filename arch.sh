@@ -4,13 +4,13 @@ sudo timedatectl set-timezone America/New_York
 sudo systemctl enable systemd-timesyncd
 
 ~/.files/update.sh
-#Installs archiving/compreshion packages
+#Installs archiving/compression packages
 sudo pacman -S --needed p7zip unrar tar rsync zstd 
 #Installs basic packages
 sudo pacman -S --needed base-devel curl wget nano neovim firefox vlc bat
 #Installs audio packages
 sudo pacman -S --needed pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pavucontrol
-#Nemo and extentions
+#Nemo and extensions
 sudo pacman -S --needed nemo nemo-fileroller nemo-image-converter nemo-preview nemo-seahorse nemo-share nemo-terminal nemo-python
 #networking
 networkmanager-openvpn network-manager-applet
@@ -30,7 +30,7 @@ if [[ $Video == Y ]]; then
 	fi
 fi
 
-#Installs and enables gui
+#Installs and enables GUI
 sudo pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
 systemctl enable lightdm
 
@@ -41,7 +41,7 @@ cd yay
 makepkg -si
 yay -Syu
 
-#installs genral packages
+#installs general packages
 yay -S --needed spotify 
 #installs fonts
 yay -S --needed adobe-source-code-pro-fonts awesome-terminal-fonts cantarell-fonts gsfonts nerd-fonts-complete noto-fonts-cjk otf-font-awesome ttf-font-awesome ttf-ms-fonts ttf-font-awesome ttf-liberation ttf-ms-fonts ttf-opensans
@@ -50,7 +50,7 @@ yay -S --needed adobe-source-code-pro-fonts awesome-terminal-fonts cantarell-fon
 yay -S --needed signal-desktop discord obs-studio v4l2loopback-dkms
 
 if [[ $1 == gaming ]]; then
-	#Installs gaming resorces
+	#Installs gaming packages
 	yay -S --needed wine lutris steam minecraft-launcher jdk
 fi
 
@@ -67,6 +67,6 @@ fi
 #Installs zsh
 sudo pacman -S --needed zsh && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-#Links zsh and vim rc files
+#Links zshrc and vimrc
 ln -fs ~/.files/vimrc ~/.vimrc
 ln -fs ~/.files/zshrc ~/.zshrc
