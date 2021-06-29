@@ -13,7 +13,7 @@ sudo pacman -S --needed pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaud
 #Nemo and extensions
 sudo pacman -S --needed nemo nemo-fileroller nemo-image-converter nemo-preview nemo-seahorse nemo-share nemo-terminal nemo-python
 #networking
-networkmanager-openvpn network-manager-applet
+sudo pacman -S networkmanager-openvpn network-manager-applet
 
 #Installs microcode Based on cpu
 if [[ $(lscpu) == *AMD* ]]; then
@@ -70,3 +70,12 @@ sudo pacman -S --needed zsh && sh -c "$(curl -fsSL https://raw.github.com/ohmyzs
 #Links zshrc and vimrc
 ln -fs ~/.files/vimrc ~/.vimrc
 ln -fs ~/.files/zshrc ~/.zshrc
+
+if [[ $3 == Sweet ]]; then
+	mkdir ~/.icons
+	mkdir ~/.theams
+	git clone https://github.com/EliverLara/candy-icons.git ~/.icons/candy-icons
+	git clone -b nova https://github.com/EliverLara/Sweet.git ~/.themes/Sweet-nova
+	
+	gsettings set org.gnome.desktop.interface gtk-theme "Sweet-nova"
+	gsettings set org.gnome.desktop.wm.preferences theme "Sweet-nova"
