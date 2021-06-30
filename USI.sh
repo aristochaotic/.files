@@ -51,4 +51,5 @@ rm ~/.bash* ~/.zshrc.pre-oh-my-zsh
 sudo snap install canonical-livepatch
 sudo canonical-livepatch enable "$2"
 
+sudo apt-get install smartmontools
 

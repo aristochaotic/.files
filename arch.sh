@@ -1,4 +1,19 @@
 #!/bin/bash
+while :; do
+    case $1 in
+        -a|--ansible) Ansible="True"
+        ;;
+        -g|--gaming) Gaming="True"
+        ;;
+				-s|--sweet) Sweet="True"
+        ;;
+				-v|--video) Video="True"
+        ;;
+        *) break
+    esac
+    shift
+done
+
 #setup time zone
 sudo timedatectl set-timezone America/New_York
 sudo systemctl enable systemd-timesyncd
@@ -9,7 +24,7 @@ sudo pacman -S --needed p7zip unrar tar rsync zstd
 #Installs basic packages
 sudo pacman -S --needed base-devel curl wget nano neovim firefox vlc bat
 #Installs audio packages
-sudo pacman -S --needed pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pavucontrol
+sudo pacman -S --needed pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pavucontrol 
 #Nemo and extensions
 sudo pacman -S --needed nemo nemo-fileroller nemo-image-converter nemo-preview nemo-seahorse nemo-share nemo-terminal nemo-python
 #networking
@@ -23,7 +38,7 @@ elif [[ $(lscpu) == *intel* ]]; then
 fi
 
 #Installs xorg and nvida driver if needed
-if [[ $Video == Y ]]; then
+if [[ $Video == True ]]; then
  sudo pacman -S --needed xorg-server
 	if [[ $(lspci) == *NVIDIA* ]]; then
  sudo pacman -S --needed nvidia nvidia-utils
@@ -49,13 +64,13 @@ yay -S --needed adobe-source-code-pro-fonts awesome-terminal-fonts cantarell-fon
 #Installs communication packages
 yay -S --needed signal-desktop discord obs-studio v4l2loopback-dkms
 
-if [[ $1 == gaming ]]; then
+if [[ $Gaming == True ]]; then
 	#Installs gaming packages
 	yay -S --needed wine lutris steam minecraft-launcher jdk
 fi
 
 #Sets up an ansible user
-if [[ $1 == ansible ]]; then
+if [[ $Ansible == True ]]; then
 	sudo groupadd -g 200 ansible
 	sudo useradd -m -u 200 -g ansible -G users -G wheel ansible
 	echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOZry9qcc9nnGZSA/CO1rHJjUl76oW+VSWMdn2TfkxfS Ansible" > /tmp/authorized_keys
@@ -71,7 +86,7 @@ sudo pacman -S --needed zsh && sh -c "$(curl -fsSL https://raw.github.com/ohmyzs
 ln -fs ~/.files/vimrc ~/.vimrc
 ln -fs ~/.files/zshrc ~/.zshrc
 
-if [[ $3 == Sweet ]]; then
+if [[ $Sweet == True ]]; then
 	mkdir ~/.icons
 	mkdir ~/.theams
 	git clone https://github.com/EliverLara/candy-icons.git ~/.icons/candy-icons
@@ -79,3 +94,4 @@ if [[ $3 == Sweet ]]; then
 	
 	gsettings set org.gnome.desktop.interface gtk-theme "Sweet-nova"
 	gsettings set org.gnome.desktop.wm.preferences theme "Sweet-nova"
+fi
