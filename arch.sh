@@ -1,17 +1,17 @@
 #!/bin/bash
 while :; do
-    case $1 in
-        -a|--ansible) Ansible="True"
-        ;;
-        -g|--gaming) Gaming="True"
-        ;;
+		case $1 in
+				-a|--ansible) Ansible="True"
+				;;
+				-g|--gaming) Gaming="True"
+				;;
 				-s|--sweet) Sweet="True"
-        ;;
+				;;
 				-v|--video) Video="True"
-        ;;
-        *) break
-    esac
-    shift
+				;;
+				*) break
+		esac
+		shift
 done
 
 #setup time zone

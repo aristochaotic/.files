@@ -1,11 +1,25 @@
 #!/bin/bash
+
+while :; do
+		case $1 in
+				-al|--alice) Alice="True"
+				;;
+				-a|--ansible) Ansible="True"
+				;;
+				-l|--livepatch) Livepatch="True"
+				;;
+				*) break
+		esac
+		shift
+done
+
 #setup time zone
 sudo timedatectl set-timezone America/New_York
 sudo systemctl enable systemd-timesyncd
 
 ~/.files/update.sh
 #Installs basic pacages
-sudo apt install curl wget nano neovim
+sudo apt install curl wget nano neovim smartmontools
 
 echo "#Bob
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG50sgvTSDclHBXiGljCwo9NWfM411U6f12Xog0nt6Bw BOB
@@ -18,7 +32,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHJDhddiEwi77eNYLYPJhfP/VZaUqezTNvxIwh0dV2SS
 " > ~/.ssh/authorized_keys
 
 
-if [[ $2 == alice ]]; then
+if [[ $Alice == True  ]]; then
 	sudo groupadd alice
 	sudo useradd -m -g alice -G users -G sudo alice
 	sudo chsh -s /bin/zsh alice
@@ -29,13 +43,18 @@ if [[ $2 == alice ]]; then
 fi
 
 #Sets up an ansible user
-if [[ $1 == ansible ]]; then
+if [[ $Ansible == True  ]]; then
 	sudo groupadd -g 200 ansible
 	sudo useradd -m -u 200 -g ansible -G users -G sudo ansible
 	echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOZry9qcc9nnGZSA/CO1rHJjUl76oW+VSWMdn2TfkxfS Ansible" > /tmp/authorized_keys
 	sudo mkdir /home/ansible/.ssh/
 	sudo mv /tmp/authorized_keys /home/ansible/.ssh/authorized_keys
 	sudo chown ansible:ansible -R /home/ansible/
+fi
+
+if [[ $Livepatch == True  ]]; then
+	sudo snap install canonical-livepatch
+	sudo canonical-livepatch enable "$2"
 fi
 
 #Installs zsh
@@ -47,9 +66,3 @@ ln -fs ~/.files/zshrc ~/.zshrc
 
 #Removes unneeded files
 rm ~/.bash* ~/.zshrc.pre-oh-my-zsh
-
-sudo snap install canonical-livepatch
-sudo canonical-livepatch enable "$2"
-
-sudo apt-get install smartmontools
-
