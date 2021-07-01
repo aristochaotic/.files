@@ -25,6 +25,8 @@ sudo pacman -S --needed p7zip unrar tar rsync zstd
 sudo pacman -S --needed base-devel curl wget nano neovim firefox vlc bat
 #Installs audio packages
 sudo pacman -S --needed pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pavucontrol 
+#Installs File system utilities
+sudo pacman -S --needed	gparted ntfs-3g nfs-utils
 #Nemo and extensions
 sudo pacman -S --needed nemo nemo-fileroller nemo-image-converter nemo-preview nemo-seahorse nemo-share nemo-terminal nemo-python
 #networking
