@@ -29,8 +29,9 @@ sudo pacman -S --needed pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaud
 sudo pacman -S --needed	gparted ntfs-3g nfs-utils
 #Nemo and extensions
 sudo pacman -S --needed nemo nemo-fileroller nemo-image-converter nemo-preview nemo-seahorse nemo-share nemo-terminal nemo-python
-#networking
-sudo pacman -S networkmanager-openvpn network-manager-applet
+#Installs networking packages
+sudo pacman -S --needed networkmanager-openvpn network-manager-applet
+
 
 #Installs microcode Based on cpu
 if [[ $(lscpu) == *AMD* ]]; then
@@ -41,15 +42,19 @@ fi
 
 #Installs xorg and nvida driver if needed
 if [[ $Video == True ]]; then
- sudo pacman -S --needed xorg-server
+	sudo pacman -S --needed xorg-server
 	if [[ $(lspci) == *NVIDIA* ]]; then
- sudo pacman -S --needed nvidia nvidia-utils
+		sudo pacman -S --needed nvidia nvidia-utils
 	fi
+	#Installs and enables GUI
+	sudo pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
+	systemctl enable lightdm
 fi
 
-#Installs and enables GUI
-sudo pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
-systemctl enable lightdm
+
+#Installs and enables reflector 
+sudo pacman -S --needed reflector
+sudo systemctl enable reflector.service
 
 #Installs yay
 cd ~/
