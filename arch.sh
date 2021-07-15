@@ -24,15 +24,11 @@ sudo systemctl enable systemd-timesyncd
 #Installs archiving/compression packages
 sudo pacman -S --needed p7zip unrar tar rsync zstd 
 #Installs basic packages
-sudo pacman -S --needed base-devel curl wget nano neovim firefox vlc bat
-#Installs audio packages
-sudo pacman -S --needed pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pavucontrol 
+sudo pacman -S --needed base-devel curl wget nano neovim bat
 #Installs File system utilities
-sudo pacman -S --needed	gparted ntfs-3g nfs-utils
-#Installs Nemo and extensions
-sudo pacman -S --needed nemo nemo-fileroller nemo-image-converter nemo-preview nemo-seahorse nemo-share nemo-terminal nemo-python
+sudo pacman -S --needed ntfs-3g nfs-utils
 #Installs networking packages
-sudo pacman -S --needed networkmanager-openvpn network-manager-applet
+sudo pacman -S --needed networkmanager-openvpn 
 
 
 #Installs microcode Based on cpu
@@ -48,6 +44,12 @@ if [[ $Video == True ]]; then
 	if [[ $(lspci) == *NVIDIA* ]]; then
 		sudo pacman -S --needed nvidia nvidia-utils
 	fi
+	#Installs basic gui packages
+	sudo pacman -S --needed firefox vlc gparted network-manager-applet
+	#Installs Nemo and extensions
+	sudo pacman -S --needed nemo nemo-fileroller nemo-image-converter nemo-preview nemo-seahorse nemo-share nemo-terminal nemo-python
+	#Installs audio packages
+	sudo pacman -S --needed pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pavucontrol 
 	#Installs and enables GUI
 	sudo pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
 	systemctl enable lightdm
