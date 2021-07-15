@@ -9,6 +9,8 @@ while :; do
 				;;
 				-v|--video) Video="True"
 				;;
+				-b|--bluetooth) Bluetooth="True"
+				;;
 				*) break
 		esac
 		shift
@@ -27,7 +29,7 @@ sudo pacman -S --needed base-devel curl wget nano neovim firefox vlc bat
 sudo pacman -S --needed pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pavucontrol 
 #Installs File system utilities
 sudo pacman -S --needed	gparted ntfs-3g nfs-utils
-#Nemo and extensions
+#Installs Nemo and extensions
 sudo pacman -S --needed nemo nemo-fileroller nemo-image-converter nemo-preview nemo-seahorse nemo-share nemo-terminal nemo-python
 #Installs networking packages
 sudo pacman -S --needed networkmanager-openvpn network-manager-applet
@@ -71,9 +73,15 @@ yay -S --needed adobe-source-code-pro-fonts awesome-terminal-fonts cantarell-fon
 #Installs communication packages
 yay -S --needed signal-desktop discord obs-studio v4l2loopback-dkms
 
+#Installs gaming packages
 if [[ $Gaming == True ]]; then
-	#Installs gaming packages
 	yay -S --needed wine lutris steam minecraft-launcher jdk
+fi
+
+#Installs and enables Bluetooth
+if [[ $Bluetooth == True ]]; then
+	yay -S --needed bluez bluez-utils blueman
+	sudo systemctl enable bluetooth.service
 fi
 
 #Sets up an ansible user
@@ -99,6 +107,7 @@ if [[ $Sweet == True ]]; then
 	git clone https://github.com/EliverLara/candy-icons.git ~/.icons/candy-icons
 	git clone -b nova https://github.com/EliverLara/Sweet.git ~/.themes/Sweet-nova
 	
+	gtk-update-icon-cache ~/.icons/candy-icons 
 	gsettings set org.gnome.desktop.interface gtk-theme "Sweet-nova"
 	gsettings set org.gnome.desktop.wm.preferences theme "Sweet-nova"
 fi
