@@ -71,9 +71,9 @@ sudo pacman -S --needed reflector
 sudo systemctl enable reflector.service
 
 #Installs yay
-cd ~/
+cd ~/ || exit
 git clone https://aur.archlinux.org/yay.git
-cd yay
+cd yay || exit
 makepkg -si
 yay -Syu
 
@@ -84,7 +84,7 @@ fi
 
 #Installs and enables Bluetooth
 if [[ $Bluetooth == True ]]; then
-	yay -S --needed bluez bluez-utils blueman
+	yay -S --needed bluez bluez-utils blueman pulseaudio-bluetooth 
 	sudo systemctl enable bluetooth.service
 fi
 
