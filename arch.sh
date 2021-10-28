@@ -70,13 +70,6 @@ fi
 sudo pacman -S --needed reflector
 sudo systemctl enable reflector.service
 
-#Installs yay
-cd ~/ || exit
-git clone https://aur.archlinux.org/yay.git
-cd yay || exit
-makepkg -si
-yay -Syu
-
 #Installs gaming packages
 if [[ $Gaming == True ]]; then
 	yay -S --needed wine lutris steam minecraft-launcher jdk

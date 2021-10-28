@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-	export ZSH="/home/r2r0m0c0/.oh-my-zsh"
+	export ZSH="/home/aristochaotic/.oh-my-zsh"
 
 # Set name of the theme to load
 	ZSH_THEME="ys"
